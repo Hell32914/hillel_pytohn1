@@ -8,4 +8,4 @@ a4 = number % 10
 print(a1)
 print(a2)
 print(a3)
-print(a4)
+print(a4) 
