@@ -1,11 +1,24 @@
-number = int(input("Enter number: "))
+def reverse_number(num):
+    # Витягуємо кожну цифру
+    digit1 = num % 10
+    num = num // 10
+    digit2 = num % 10
+    num = num // 10
+    digit3 = num % 10
+    num = num // 10
+    digit4 = num % 10
+    num = num // 10
+    digit5 = num % 10
+    
+    # Збираємо нове число у зворотному порядку
+    reversed_num = digit1 * 10000 + digit2 * 1000 + digit3 * 100 + digit4 * 10 + digit5
+    
+    return reversed_num
 
-a1 = number // 1000
-a2 = (number % 1000) // 100
-a3 = (number % 100) // 10
-a4 = number % 10
+# Запитуємо число у користувача
+user_input = input("Введіть 5-значне число: ")
+number = int(user_input)
 
-print(a1)
-print(a2)
-print(a3)
-print(a4) 
+# Викликаємо функцію та виводимо результат
+reversed_number = reverse_number(number)
+print("Перевернуте число:", reversed_number)
