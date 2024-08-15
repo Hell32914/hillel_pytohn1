@@ -1,18 +1,16 @@
+import re
 import string
 
+name = input("Введіть рядок:  ")
 
-punctuation = string.punctuation + ' '
+cleaned_string = re.sub(r'[^a-zA-Z\s]', '', name)
 
-name =(input("Введіть рядок:  "))
+words = cleaned_string.split()
+formatted_string = ''.join(word.capitalize() for word in words)
 
-title = name.title()
-
-filtered_string = ''.join([char for char in title if char not in punctuation])
-
-hesh = "#" + filtered_string
+hesh = f"#{formatted_string}"
 
 if len(hesh) > 139:
-    lenght = hesh[:139] 
-    print(lenght)
-else: 
-    print(hesh)
+    hesh = hesh[:139]
+
+print(hesh)
