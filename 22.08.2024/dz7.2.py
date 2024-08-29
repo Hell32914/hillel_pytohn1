@@ -1,19 +1,20 @@
-def correct_sentence(text):
-    # Перетворюємо текст на рядок + видаляю пробіли на початку та в кінці 
+def correct_sentence(text: str) -> str:
+    # Перетворюємо текст на рядок + видаляємо пробіли на початку та в кінці
     text = str(text).strip()
     
-    # Якщо тексту немає 
+    # Якщо тексту немає
     if not text:
         return ""
     
     # Щоб перша літера була велика
     cor_text = text[0].upper() + text[1:]
     
-    # Додаю крапку, якщо її немає
+    # Додаємо крапку, якщо її немає
     if not cor_text.endswith('.'):
         cor_text += '.'
     
     return cor_text
+
 
 # Перевірка роботи
 assert correct_sentence("greetings, friends") == "Greetings, friends.", 'Test1'

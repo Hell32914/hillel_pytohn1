@@ -1,8 +1,10 @@
-def second_index(text, some_str):
+from typing import Optional
+
+def second_index(text: str, some_str: str) -> Optional[int]:
     # Знайти перше входження
     first_index = text.find(some_str)
     
-    # Якщо перше входження не знайдено - none
+    # Якщо перше входження не знайдено, повернути None
     if first_index == -1:
         return None
     
@@ -11,6 +13,7 @@ def second_index(text, some_str):
     
     # Якщо друге входження знайдено, повернути його індекс, інакше повернути None
     return second_index if second_index != -1 else None
+
 
 # Перевірка роботи функції
 assert second_index("sims", "s") == 3, 'Test1'
