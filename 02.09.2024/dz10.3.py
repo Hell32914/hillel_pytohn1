@@ -1,6 +1,6 @@
-def is_even(digit):
-    """Перевіряє, чи є число парним."""
-    return digit % 2 == 0
+def is_even(digit: int) -> bool:
+    """Перевіряє, чи є число парним без використання ділення."""
+    return (digit & 1) == 0
 
 # Тестування функції
 assert is_even(2) == True, 'Test1'
