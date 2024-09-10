@@ -18,8 +18,8 @@ def delete_html_tags(html_file: str, result_file: Optional[str] = 'cleaned.txt')
     with codecs.open(html_file_path, 'r', 'utf-8') as file:
         html = file.read()
     
-    # Видалення HTML-тегів
-    clean_text = re.sub(r'<.*?>', '', html)
+    # Видалення HTML-тегів за допомогою "нелюблячого" регулярного виразу
+    clean_text = re.sub(r'<[^>]+?>', '', html)
     
     # Видалення порожніх рядків
     lines = clean_text.splitlines()

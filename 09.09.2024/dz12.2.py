@@ -25,18 +25,16 @@ class Purchase:
     def __init__(self, user: User):
         self.products: Dict[Item, int] = {}
         self.user = user
+        self.total = 0  # Додаємо поле для загальної вартості
 
     def add_item(self, item: Item, cnt: int) -> None:
-        if item in self.products:
-            self.products[item] += cnt  # Якщо товар вже є, збільшуємо кількість
-        else:
-            self.products[item] = cnt  # Якщо товару немає, додаємо
+        self.products[item] = cnt  # Без перевірки, просто додаємо товар з кількістю
 
     def get_total(self) -> int:
-        total = 0
+        self.total = 0
         for item, cnt in self.products.items():
-            total += item.price * cnt  # Ціна товару * кількість
-        return total
+            self.total += item.price * cnt  # Ціна товару * кількість
+        return self.total
 
     def __str__(self) -> str:
         result = f"User: {self.user.name} {self.user.surname}\n"
@@ -69,9 +67,10 @@ apple: 20 pcs.
 
 assert isinstance(cart.user, User) is True, 'Екземпляр класу User'
 assert cart.get_total() == 60, "Всього 60"
+assert cart.get_total() == 60, 'Повинно залишатися 60!'
 
 # Оновлення кількості яблук
-cart.add_item(apple, -10)  # Віднімаємо 10 штук
+cart.add_item(apple, 10)  # Оновлюємо кількість яблук
 print(cart)
 """
 User: Ivan Ivanov
